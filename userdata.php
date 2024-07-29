@@ -129,7 +129,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     var table = $('#userTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/users",
+            "url": "http://143.198.218.9:30000/api/users",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -153,7 +153,7 @@ $(document).ready(function() {
             {
                 "data": "ktp_image",
                 "render" : function(data,type,row){
-                    return '<img src="http://143.198.218.9:8000/storage/ktpimage/' + data + '" alt="KTP Image" class="img-fluid img-thumbnail" width="50">';
+                    return '<img src="http://143.198.218.9:30000/storage/ktpimage/' + data + '" alt="KTP Image" class="img-fluid img-thumbnail" width="50">';
                 }
             },
             { "data": "verified" },
@@ -181,7 +181,7 @@ $(document).ready(function() {
 
     function updateUserStatus(userId, status) {
         $.ajax({
-            url: `http://143.198.218.9:8000/api/users/${userId}`,
+            url: `http://143.198.218.9:30000/api/users/${userId}`,
             type: 'POST', // Ganti PUT dengan POST
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>',

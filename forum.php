@@ -133,7 +133,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     var table = $('#forumTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/forums",
+            "url": "http://143.198.218.9:30000/api/forums",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -174,7 +174,7 @@ $(document).ready(function() {
     $('#forumTable tbody').on('click', '.view-details-btn', function() {
         currentForumId = $(this).data('id');
         $.ajax({
-            url: `http://143.198.218.9:8000/api/forums/${currentForumId}`,
+            url: `http://143.198.218.9:30000/api/forums/${currentForumId}`,
             type: 'GET',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>'
@@ -214,7 +214,7 @@ $(document).ready(function() {
     $('#deleteForumBtn').on('click', function() {
         if (confirm('Are you sure you want to delete this forum?')) {
             $.ajax({
-                url: `http://143.198.218.9:8000/api/forums/${currentForumId}`,
+                url: `http://143.198.218.9:30000/api/forums/${currentForumId}`,
                 type: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer <?= $_SESSION['token'] ?>'

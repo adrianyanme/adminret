@@ -111,7 +111,7 @@ $(document).ready(function() {
     // Initialize DataTable
     var table = $('#persalinanTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/persalinan",
+            "url": "http://143.198.218.9:30000/api/persalinan",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');

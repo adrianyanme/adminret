@@ -175,7 +175,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     var table = $('#jdhTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/jdh",
+            "url": "http://143.198.218.9:30000/api/jdh",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -199,7 +199,7 @@ $(document).ready(function() {
         e.preventDefault();
         var formData = new FormData(this);
         $.ajax({
-            url: 'http://143.198.218.9:8000/api/jdh',
+            url: 'http://143.198.218.9:30000/api/jdh',
             type: 'POST',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>'

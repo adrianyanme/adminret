@@ -7,7 +7,7 @@ if (!isset($_SESSION['token'])) {
 }
 
 // URL API yang membutuhkan otentikasi
-$api_url = 'http://143.198.218.9:8000/api/me'; // Sesuaikan dengan URL API Anda
+$api_url = 'http://143.198.218.9:30000/api/me'; // Sesuaikan dengan URL API Anda
 
 // Menggunakan cURL untuk mengirim data dengan Bearer Token
 $curl = curl_init($api_url);

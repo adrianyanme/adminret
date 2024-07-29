@@ -181,7 +181,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     var table = $('#streamingTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/streaming",
+            "url": "http://143.198.218.9:30000/api/streaming",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -193,7 +193,7 @@ $(document).ready(function() {
             { 
                 "data": "thumbnail",
                 "render": function(data, type, row) {
-                    return `<img src="http://143.198.218.9:8000/storage/thumbnails/${data}" alt="Thumbnail" class="img-fluid img-thumbnail" width="100">`;
+                    return `<img src="http://143.198.218.9:30000/storage/thumbnails/${data}" alt="Thumbnail" class="img-fluid img-thumbnail" width="100">`;
                 }
             },
             { "data": "judul_streaming" },
@@ -236,7 +236,7 @@ $(document).ready(function() {
         e.preventDefault();
         var statusStream = $('#status_stream').val();
         $.ajax({
-            url: `http://143.198.218.9:8000/api/streamings/${currentStreamId}/status`,
+            url: `http://143.198.218.9:30000/api/streamings/${currentStreamId}/status`,
             type: 'PUT',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>'
@@ -259,7 +259,7 @@ $(document).ready(function() {
         var streamId = $(this).data('id');
         if (confirm('Are you sure you want to delete this stream?')) {
             $.ajax({
-                url: `http://143.198.218.9:8000/api/streamings/${streamId}`,
+                url: `http://143.198.218.9:30000/api/streamings/${streamId}`,
                 type: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer <?= $_SESSION['token'] ?>'
@@ -280,7 +280,7 @@ $(document).ready(function() {
         e.preventDefault();
         var formData = new FormData(this);
         $.ajax({
-            url: 'http://143.198.218.9:8000/api/streaming',
+            url: 'http://143.198.218.9:30000/api/streaming',
             type: 'POST',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>'

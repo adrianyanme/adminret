@@ -111,7 +111,7 @@ $(document).ready(function() {
     // Initialize DataTable
     var table = $('#gugatansederhanaTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:8000/api/gugatansederhana",
+            "url": "http://143.198.218.9:30000/api/gugatansederhana",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -129,7 +129,7 @@ $(document).ready(function() {
             { 
                 "data": "lampiran",
                 "render": function(data, type, row) {
-                    var url = `http://143.198.218.9:8000/storage/lampiran/${data}`;
+                    var url = `http://143.198.218.9:30000/storage/lampiran/${data}`;
                     return `<a href="${url}" target="_blank">${data}</a>`;
                 }
             },
