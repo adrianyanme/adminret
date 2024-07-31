@@ -148,7 +148,7 @@ $(document).ready(function() {
             { 
                 "data": "writer.username",
                 "render": function(data, type, row) {
-                    return '<img src="' + row.writer.profileimg + '" alt="Profile Image" class="img-fluid img-thumbnail" width="50"> ' + data;
+                    return '<img src="http://143.198.218.9/backend/storage/profileimg/' + row.writer.profileimg + '" alt="Profile Image" class="img-fluid img-thumbnail" width="50"> ' + data;
                 }
             },
             { "data": "likes_count" },
