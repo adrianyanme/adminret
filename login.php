@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = 'Please enter both username and password.';
     } else {
         // URL API Login
-        $api_url = 'http://143.198.218.9:30000/api/login'; // Ganti dengan URL API login kamu
+        $api_url = 'http://143.198.218.9/backend/api/login'; // Ganti dengan URL API login kamu
 
         // Data yang akan dikirim ke API
         $data = array(
@@ -41,15 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($http_code == 200) {
                 // Jika kode status HTTP adalah 200 (OK)
-                // Menyimpan token langsung ke variabel
-                $token = $response;
+                $token = $json_response['token'];
+                $role = $json_response['role'];
 
-                // Menyimpan Bearer token ke session jika login berhasil
-                $_SESSION['token'] = $token;
-                header('Location: index.php');
-                exit();
-            } else { 
-                (isset($json_response['message']) && $json_response['message'] === "The provided credentials are incorrect.");
+                if ($role == 'superadmin') {
+                    // Menyimpan Bearer token ke session jika login berhasil
+                    $_SESSION['token'] = $token;
+                    header('Location: index.php');
+                    exit();
+                } else {
+                    $error_message = 'Access denied for user role.';
+                }
+            } else {
                 // Jika kode status HTTP adalah 422 (Unprocessable Entity) dan kesalahan credential
                 $error_message = 'Username atau Password tidak valid';
             }

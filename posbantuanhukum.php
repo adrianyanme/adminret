@@ -110,7 +110,7 @@ $(document).ready(function() {
     // Initialize DataTable
     var table = $('#posbantuanhukumTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:30000/api/posbantuanhukum",
+            "url": "http://143.198.218.9/backend/api/posbantuanhukum",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -126,13 +126,13 @@ $(document).ready(function() {
             { 
                 "data": "suratgugatan",
                 "render": function(data, type, row) {
-                    return `<a href="http://143.198.218.9:30000/storage/suratgugatan/${data}" target="_blank">${data}</a>`;
+                    return `<a href="http://143.198.218.9/backend/storage/suratgugatan/${data}" target="_blank">${data}</a>`;
                 }
             },
             { 
                 "data": "suratketerangantidakmampu",
                 "render": function(data, type, row) {
-                    return `<a href="http://143.198.218.9:30000/storage/suratketerangantidakmampu/${data}" target="_blank">${data}</a>`;
+                    return `<a href="http://143.198.218.9/backend/storage/suratketerangantidakmampu/${data}" target="_blank">${data}</a>`;
                 }
             },
             { "data": "author" },

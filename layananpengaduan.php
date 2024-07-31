@@ -107,7 +107,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     $('#layananPengaduanTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:30000/api/layanan-pengaduan",
+            "url": "http://143.198.218.9/backend/api/layanan-pengaduan",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');

@@ -145,7 +145,7 @@ $(document).ready(function() {
     // Initialize DataTable
     var table = $('#scheduleTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:30000/api/schedules",
+            "url": "http://143.198.218.9/backend/api/schedules",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -187,7 +187,7 @@ $(document).ready(function() {
         var scheduleId = $(this).data('id');
         if (confirm('Are you sure you want to delete this schedule?')) {
             $.ajax({
-                url: `http://143.198.218.9:30000/api/schedules/${scheduleId}`,
+                url: `http://143.198.218.9/backend/api/schedules/${scheduleId}`,
                 type: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer <?= $_SESSION['token'] ?>'
@@ -213,7 +213,7 @@ $(document).ready(function() {
             hearing_time: $('#hearing_time').val()
         };
         $.ajax({
-            url: 'http://143.198.218.9:30000/api/schedules',
+            url: 'http://143.198.218.9/backend/api/schedules',
             type: 'POST',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>'

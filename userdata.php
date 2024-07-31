@@ -129,7 +129,7 @@ if (isset($response_data['error'])) {
 $(document).ready(function() {
     var table = $('#userTable').DataTable({
         "ajax": {
-            "url": "http://143.198.218.9:30000/api/users",
+            "url": "http://143.198.218.9/backend/api/users",
             "type": "GET",
             "beforeSend": function(xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer <?= $_SESSION['token'] ?>');
@@ -146,14 +146,14 @@ $(document).ready(function() {
             { 
                 "data": "profileimg",
                 "render": function(data, type, row) {
-                    return '<img src="' + data + '" alt="Profile Image" class="img-fluid img-thumbnail" width="50">';
+                    return '<img src="http://143.198.218.9/backend/storage/profileimg/' + data + '" alt="Profile Image" class="img-fluid img-thumbnail" width="50">';
                 }
             },
             { "data": "nik" },
             {
                 "data": "ktp_image",
                 "render" : function(data,type,row){
-                    return '<img src="http://143.198.218.9:30000/storage/ktpimage/' + data + '" alt="KTP Image" class="img-fluid img-thumbnail" width="50">';
+                    return '<img src="http://143.198.218.9/backend/storage/ktpimage/' + data + '" alt="KTP Image" class="img-fluid img-thumbnail" width="50">';
                 }
             },
             { "data": "verified" },
@@ -181,8 +181,8 @@ $(document).ready(function() {
 
     function updateUserStatus(userId, status) {
         $.ajax({
-            url: `http://143.198.218.9:30000/api/users/${userId}`,
-            type: 'POST', // Ganti PUT dengan POST
+            url: `http://143.198.218.9/backend/api/users/${userId}`,
+            type: 'POST',
             headers: {
                 'Authorization': 'Bearer <?= $_SESSION['token'] ?>',
                 'Content-Type': 'application/json'
